@@ -135,4 +135,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n👋 Interrupted. Exiting...")
+        print(f"\n\n[Foxwikibot] Interrupted by {username}. Exiting...")
