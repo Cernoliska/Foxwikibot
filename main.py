@@ -33,7 +33,7 @@ def check_requirements():
     if missing:
         print(f"{YELLOW}[Foxwikibot] Installing module: {', '.join(missing)}...{RESET}")
         subprocess.check_call([sys.executable, "-m", "pip", "install"] + missing)
-        print(f"{CYAN}[Foxwikibot]: Module installed!{RESET}\n")
+        print(f"{CYAN}[Foxwikibot] Module installed!{RESET}\n")
 
 check_requirements()
 
@@ -50,7 +50,7 @@ def api_post(data):
     return session.post(API_URL, data=data).json()
 
 def login():
-    print(f"{CYAN}🔑 Logging in as {USERNAME}...{RESET}")
+    print(f"{CYAN}[Foxbotwiki] Logging in as {USERNAME}...{RESET}")
     token = api_get({"action": "query", "meta": "tokens", "type": "login"})["query"]["tokens"]["logintoken"]
     r = api_post({
         "action": "login",
@@ -89,7 +89,7 @@ Hello, {BOLD}{username}{RESET}! Where are you going today?
 """)
 
 def goodbye(username):
-    print(f"\n{BLUE}Goodbye, {username}! Have a great day 😉{RESET}")
+    print(f"\n{BLUE}[Foxwikibot] Goodbye {username}! Have a great day{RESET}")
     sys.exit(0)
 
 def main():
